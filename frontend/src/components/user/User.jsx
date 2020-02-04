@@ -7,8 +7,8 @@ import UserTable from './UserTable'
 
 const headerProps = {
     icon: 'users',
-    title: 'Usuários',
-    subtitle: 'Cadastro de usuários: Incluir, Listar, Alterar e Excluir!'
+    title: 'Users',
+    subtitle: 'CRUD Users: Consult, Add, Edit, Delete'
 }
 
 const baseUrl = 'http://localhost:3001/users'
@@ -20,8 +20,19 @@ const initialState = {
 export default class UserCrud extends Component {
 
     state = { ...initialState }
+    
+    constructor(props) {
+        super(props);
 
-    componentWillMount() {
+        this.updateField = this.updateField.bind(this)
+        this.clear = this.clear.bind(this)
+        this.save = this.save.bind(this)
+        this.remove = this.remove.bind(this)
+        this.load = this.load.bind(this)
+    }
+    
+
+    componentDidMount() {
         axios(baseUrl).then(resp => {
             this.setState({ list: resp.data })
         })
@@ -70,7 +81,7 @@ export default class UserCrud extends Component {
             <Main {...headerProps}>
                 <UserForm user={this.state.user} updateField={this.updateField}
                     save={this.save} clear={this.clear} />
-                <UserTable list={this.state.list} />
+                <UserTable list={this.state.list} load={this.load} remove={this.remove} />
             </Main>
         )
     }

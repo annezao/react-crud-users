@@ -3,9 +3,8 @@ import Main from '../template/Main/Main'
 
 export default props =>
     <Main icon="home" title="Início"
-        subtitle="Segundo Projeto do capítulo de React.">
-        <div className='display-4'>Bem Vindo!</div>
+        subtitle="Simple CRUD with ReactJS">
+        <div className='display-4'>Sup?</div>
         <hr />
-        <p className="mb-0">Sistema para exemplificar a construção
-            de um cadastro desenvolvido em React!</p>
+        <p className="mb-0">Just a CRUD sampple using ReactJS</p>
     </Main>

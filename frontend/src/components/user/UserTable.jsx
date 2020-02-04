@@ -13,8 +13,8 @@ export default props =>
             </tr>
         </thead>
         <tbody>
-            {props.list.map(user => {
-                return <Row load={props.load} remove={props.remove} user={user} />
+            {props.list.map((user, i) => {
+                return <Row load={props.load} key={i} remove={props.remove} user={user} />
             })}
         </tbody>
     </table>
